@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>
+      {{ page.title }} - Workshop: ECommerce for humans and AI Agents
+    </title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="{{ page.base }}style.css">
+    <meta name="twitter:site" content="@w3c">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta property="og:title" content=
+    "{{page.title}}">
+    <meta property="og:description" content=
+    "A tentative W3C workshop CfP draft jointly organized by W3C and GS1">
+    <meta property="og:image" content=
+    "banner.jpg">
+  </head>
+  <body>
+    <header class="header">
+      <div id="logo">
+        <a href="https://www.w3.org/"><img src="https://www.w3.org/assets/logos/w3c/w3c-no-background.png" alt="W3C"
+     srcset="https://www.w3.org/assets/logos/w3c/w3c-no-background.svg"></a> <span id=
+        "translations">{% if page.zh %} <a href="{{page.base }}{{page.zh}}"><span lang="zh-hans">简体中文</span></a> {% endif %} </span>
+      </div>
+      <div id="top">
+	<hgroup>
+        <h1>
+          ECommerce for humans and AI Agents
+        </h1>
+        <p>
+          Jointly organized by W3C and GS1
+        </p>
+	<p>Hybrid event in Europe, first half of September 2026, to be confirmed</p>
+	</hgroup>
+      </div>
+      <nav class="menu" id="menu">
+        <ul>
+          {% for item in site.data.pages.pages %}
+          {% assign absolute_url = "/" | append: item.url %}
+          {% assign isThisPage = false %}
+          {% if absolute_url == page.url %}
+          {% assign isThisPage = true %}
+          {% endif %}
+          {% if absolute_url == "/index.html" and page.url == "/" %}
+          {% assign isThisPage = true %}
+          {% endif %}
+        <li>
+          <a {% if isThisPage or page.parent == item.url %}class="active-tab" {% endif %}{% if isThisPage == false %}href="{{page.base }}{{ item.url }}"{% endif %}>{{ item.title }}</a>
+        </li>
+        {% endfor %}
+        </ul>
+      </nav>
+      <h2>{{title}}</h2>
+    </header>
+    <main>
+      {{ content }}
+    </main>
+    <footer class="footer" id="footer">
+      <p>
+        W3C is proud to be an open and inclusive organization, focused on
+        productive discussions and actions. Our <a href=
+        "https://www.w3.org/Consortium/cepc/">Code of Ethics and Professional
+        Conduct</a> ensures that all voices can be heard.
+      </p>
+      <p>
+        Questions? Details are still to be confirmed.
+      </p>
+      <p>
+        Suggestions for improving this workshop page, such as fixing typos or
+        adding specific topics, can be made through the workshop repository or
+        the related <a href="https://github.com/w3c/strategy/issues/544">W3C
+        Strategy issue</a>.
+      </p>
+    </footer>
+    <script src="{{page.base }}script.js">
+    </script>
+    <script src="{{page.base }}submit.js">
+    </script>
+  </body>
+</html>
