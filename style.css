@@ -51,6 +51,10 @@ header #logo img {
   width: auto;
 }
 
+header #logo img.gs1-logo {
+  height: 40px;
+}
+
 header #translations {
   float: none;
   margin-left: auto;
