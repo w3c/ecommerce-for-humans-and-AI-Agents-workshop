@@ -20,10 +20,11 @@
     <header class="header">
       <div id="logo">
         <a href="https://www.w3.org/"><img src="https://www.w3.org/assets/logos/w3c/w3c-no-background.png" alt="W3C"
-     srcset="https://www.w3.org/assets/logos/w3c/w3c-no-background.svg"></a> <span id=
+     srcset="https://www.w3.org/assets/logos/w3c/w3c-no-background.svg"></a>
+        <a href="https://www.gs1.org/"><img class="gs1-logo" src="{{ page.base }}gs1-logo.svg" alt="GS1"></a> <span id=
         "translations">{% if page.zh %} <a href="{{page.base }}{{page.zh}}"><span lang="zh-hans">简体中文</span></a> {% endif %} </span>
       </div>
-      <div id="top">
+      <div id="top" aria-describedby="banner-description">
 	<hgroup>
         <h1>
           Workshop: ECommerce for humans and AI Agents
@@ -33,6 +34,8 @@
         </p>
 	      <p>Hybrid event in Zurich, September 7-9, 2026</p>
 	</hgroup>
+        <p id="banner-description" class="visually-hidden">Illustration of a human shopper, ecommerce product cards, packages, barcode and QR code elements, and an AI agent connected through web data lines.</p>
+        <p class="image-credit">Image generated with GPT</p>
       </div>
       <nav class="menu" id="menu">
         <ul>

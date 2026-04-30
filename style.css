@@ -39,15 +39,21 @@ body {
 }
 
 header #logo {
-  height: 72px;
+  align-items: center;
+  display: flex;
+  gap: 1.25rem;
+  min-height: 72px;
 }
 
 header #logo img {
-  float: left;
+  float: none;
+  height: 48px;
+  width: auto;
 }
 
 header #translations {
-  float: right;
+  float: none;
+  margin-left: auto;
 }
 
 #top {
@@ -108,6 +114,29 @@ header #translations {
 #top h1 a:link, #top h1 a:visited { color: white;}
 
 #top a.credit { position: absolute; bottom:0; right:0;}
+
+.visually-hidden {
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  height: 1px;
+  overflow: hidden;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+}
+
+#top .image-credit {
+  background: rgba(255, 255, 255, .72);
+  border-radius: .25rem;
+  bottom: .5rem;
+  color: #555;
+  font-size: .8rem;
+  line-height: 1;
+  margin: 0;
+  padding: .3rem .45rem;
+  position: absolute;
+  right: .5rem;
+}
 
 .footer :last-child {
   margin-bottom: 0;
