@@ -774,10 +774,10 @@ ol { margin-left: 1.5rem;}
   border: 1px solid #ccc;
   box-shadow: .3em .3em 0 rgba(0,0,0,.1);
   float: right;
-  margin: 0 0 1.5rem 2rem;
+  margin: 0 0 2rem 3rem;
   padding: 1rem;
   text-align: center;
-  width: 14rem;
+  width: 19em;
 }
 
 .sponsor-box h2 {
@@ -790,6 +790,12 @@ ol { margin-left: 1.5rem;}
   font-size: 1.7rem;
   font-weight: bold;
   margin: 0;
+}
+
+.sponsor-logo img {
+  margin: 2.5rem auto;
+  max-width: 11rem;
+  width: 100%;
 }
 
 label:before, label:after {
