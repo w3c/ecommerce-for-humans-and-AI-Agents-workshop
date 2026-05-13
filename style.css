@@ -793,7 +793,7 @@ ol { margin-left: 1.5rem;}
 }
 
 .sponsor-logo img {
-  margin: 2.5rem auto;
+  margin: .75rem auto .25rem;
   max-width: 11rem;
   width: 100%;
 }
