@@ -1162,3 +1162,9 @@ aside p, ul {
     float: right;
   }
 }
+
+table {
+    border-collapse: collapse;
+}
+th, td { border: thin solid gray;}
+th { background-color: #005a9c; color: white;}
