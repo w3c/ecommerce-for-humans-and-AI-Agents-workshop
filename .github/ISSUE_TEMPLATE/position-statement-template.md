@@ -9,6 +9,8 @@ assignees: ''
 
 Thank you for submitting a position statement for the **E-commerce for Humans and AI Agents Workshop**.
 
+Information submitted through GitHub will be public. If you do not want your submission to be public, please submit it by email to group-ecommerce-agents-pc@w3.org instead.
+
 A position statement is intended for participants who would like to share a perspective, use case, technical proposal, implementation experience, research finding, standardization gap, or discussion topic with the workshop.
 
 It should briefly explain **what you would like to contribute**, **why it is relevant to the workshop**, and **how it can help shape the workshop discussion or outcomes**.
@@ -41,6 +43,15 @@ Suggested length: **500-1000 words**, maximum **2 pages**.
 - Demonstration
 - Written input only
 - Other:
+
+## Expected attendance
+
+<!-- Please keep one option. This helps the organizers plan venue capacity and remote participation support. -->
+
+- In person
+- Remote
+- Either
+- Not sure yet
 
 ## Summary of proposed contribution
 

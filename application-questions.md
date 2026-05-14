@@ -6,4 +6,13 @@ layout: subpage
 
 # Application questions
 
-Participation details are still to be confirmed.
+## Expected attendance
+
+Please indicate whether you expect to attend in person or remotely.
+
+- In person
+- Remote
+- Either
+- Not sure yet
+
+This information will help the organizers plan venue capacity and remote participation support.

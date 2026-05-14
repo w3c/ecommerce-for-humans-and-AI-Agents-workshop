@@ -10,6 +10,8 @@ assignees: ''
 
 Thank you for your interest in participating in the **E-commerce for Humans and AI Agents Workshop**.
 
+Information submitted through GitHub will be public. If you do not want your submission to be public, please submit it by email to group-ecommerce-agents-pc@w3.org instead.
+
 An expression of interest is intended for people who would like to attend and contribute to the discussion, but do not have a specific topic, presentation, or position statement to propose.
 
 Please briefly explain your background, why you are interested in the workshop, and what perspectives or discussion topics you hope to contribute.
@@ -25,6 +27,15 @@ Please briefly explain your background, why you are interested in the workshop, 
 ## Email
 
 <!-- Contact email address -->
+
+## Expected attendance
+
+<!-- Please keep one option. This helps the organizers plan venue capacity and remote participation support. -->
+
+- In person
+- Remote
+- Either
+- Not sure yet
 
 ## Background
 
