@@ -103,27 +103,27 @@ header #translations {
 
 #top hgroup p {
   color: #333;
-  font-size: 1.25rem;
+  font-size: 1.12rem;
   font-weight: bold;
-  margin: .75rem 0;
-  text-shadow: 0 1px 2px rgba(255, 255, 255, .9);
+  margin: .65rem 0;
+  text-shadow: 0 1px 2px rgba(255, 255, 255, .92);
 }
 
 #top h1 {
   color: #005a9c;
-  font-size: 2rem;
-  line-height: 1.15;
-  margin-bottom: 1rem;
+  font-size: 2.15rem;
 }
 
 #top hgroup * {
   padding: 0;
+  position: relative;
+  z-index: 1;
 }
 
 @media all and (min-width: 787px) {
   #top hgroup {
     left: 2rem;
-    max-width: 29rem;
+    max-width: 28rem;
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
@@ -794,8 +794,46 @@ ol { margin-left: 1.5rem;}
 }
 
 #top hgroup {
-  background: transparent;
-  padding: 1.25rem 1.5rem 1.5rem;
+  -webkit-backdrop-filter: blur(3px) saturate(1);
+  backdrop-filter: blur(3px) saturate(1);
+  background:
+    linear-gradient(
+      135deg,
+      rgba(255, 255, 255, .34) 0%,
+      rgba(244, 252, 255, .2) 58%,
+      rgba(176, 209, 255, .1) 100%
+    );
+  border-radius: .75rem;
+  box-shadow:
+    0 1.8rem 4.8rem rgba(0, 90, 156, .16),
+    inset 0 1px 0 rgba(255, 255, 255, .38);
+  overflow: hidden;
+  padding: 1.45rem 1.6rem 1.5rem;
+  position: relative;
+}
+
+#top hgroup::before {
+  background: linear-gradient(
+    120deg,
+    rgba(255, 255, 255, .24) 0%,
+    rgba(255, 255, 255, .08) 34%,
+    rgba(255, 255, 255, 0) 68%
+  );
+  content: "";
+  inset: 0;
+  pointer-events: none;
+  position: absolute;
+}
+
+@media all and (min-width: 861px) {
+  #top hgroup {
+    left: 2rem;
+    max-width: 28rem;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 1;
+  }
 }
 
 .sponsor-box {
