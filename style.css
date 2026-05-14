@@ -64,8 +64,8 @@ header #translations {
   background-color: #f2fdff;
   background-image: url("banner.jpg");
   background-repeat: no-repeat;
-  background-position: center;
-  background-size: cover;
+  background-position: right top;
+  background-size: 112% auto;
   min-height: 454px;
   color: white;
   position: relative;
@@ -75,15 +75,15 @@ header #translations {
   background:
     linear-gradient(
       90deg,
-      rgba(242, 253, 255, .9) 0%,
-      rgba(242, 253, 255, .76) 36%,
-      rgba(242, 253, 255, .24) 68%,
-      rgba(0, 90, 156, .16) 100%
+      rgba(239, 246, 250, .96) 0%,
+      rgba(220, 235, 246, .84) 34%,
+      rgba(142, 181, 212, .48) 64%,
+      rgba(0, 85, 145, .48) 100%
     ),
     linear-gradient(
       180deg,
-      rgba(255, 255, 255, .28) 0%,
-      rgba(0, 90, 156, .08) 100%
+      rgba(239, 246, 250, .34) 0%,
+      rgba(0, 74, 135, .44) 100%
     );
   content: "";
   inset: 0;
@@ -842,14 +842,14 @@ ol { margin-left: 1.5rem;}
   box-shadow: .3em .3em 0 rgba(0,0,0,.1);
   float: right;
   margin: 0 0 2rem 3rem;
-  padding: 1rem;
+  padding: .7rem 1rem .8rem;
   text-align: center;
   width: 19em;
 }
 
 .sponsor-box h2 {
   font-size: 1.1rem;
-  margin: 0 0 .75rem;
+  margin: 0 0 .35rem;
 }
 
 .sponsor-logo {
@@ -860,8 +860,8 @@ ol { margin-left: 1.5rem;}
 }
 
 .sponsor-logo img {
-  margin: .75rem auto .25rem;
-  max-width: 11rem;
+  margin: .1rem auto 0;
+  max-width: 9.5rem;
   width: 100%;
 }
 
