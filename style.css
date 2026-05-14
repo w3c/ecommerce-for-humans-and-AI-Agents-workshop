@@ -123,9 +123,10 @@ header #translations {
 @media all and (min-width: 787px) {
   #top hgroup {
     left: 2rem;
-    max-width: 33rem;
+    max-width: 29rem;
     position: absolute;
-    top: 1.25rem;
+    top: 50%;
+    transform: translateY(-50%);
     z-index: 1;
   }
 
@@ -450,6 +451,7 @@ address {
 
   #top hgroup {
     margin: 1rem;
+    transform: none;
   }
 
   .sponsor-box {
