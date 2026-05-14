@@ -71,6 +71,27 @@ header #translations {
   position: relative;
 }
 
+#top::before {
+  background:
+    linear-gradient(
+      90deg,
+      rgba(242, 253, 255, .9) 0%,
+      rgba(242, 253, 255, .76) 36%,
+      rgba(242, 253, 255, .24) 68%,
+      rgba(0, 90, 156, .16) 100%
+    ),
+    linear-gradient(
+      180deg,
+      rgba(255, 255, 255, .28) 0%,
+      rgba(0, 90, 156, .08) 100%
+    );
+  content: "";
+  inset: 0;
+  pointer-events: none;
+  position: absolute;
+  z-index: 0;
+}
+
 #top.small {
     background-color: black;
   background-image: url("banner.jpg");
@@ -105,6 +126,7 @@ header #translations {
     max-width: 33rem;
     position: absolute;
     top: 1.25rem;
+    z-index: 1;
   }
 
 }
@@ -140,6 +162,11 @@ header #translations {
   padding: .3rem .45rem;
   position: absolute;
   right: .5rem;
+  z-index: 1;
+}
+
+#top .image-credit a {
+  color: inherit;
 }
 
 .footer :last-child {
