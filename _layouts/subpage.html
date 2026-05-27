@@ -60,6 +60,21 @@
       <h2>{{title}}</h2>
     </header>
     <main>
+      {% unless page.url == "/" or page.url == "/index.html" %}
+      <aside class="box">
+        <h2>Important Dates</h2>
+        <dl>
+          <dt>June 26</dt>
+          <dd>Deadline for <a href="{{page.base }}cfp.html">submitting position statement and Expression of Interest</a></dd>
+          <dt>August 1st</dt>
+          <dd>Acceptance notification</dd>
+          <dt>August 17</dt>
+          <dd>Initial Agenda published</dd>
+          <dt>September 8-9</dt>
+          <dd>Hybrid workshop</dd>
+        </dl>
+      </aside>
+      {% endunless %}
       {{ content }}
     </main>
     <footer class="footer" id="footer">
