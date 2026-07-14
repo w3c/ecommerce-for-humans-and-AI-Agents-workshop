@@ -60,6 +60,7 @@
       <h2>{{title}}</h2>
     </header>
     <main>
+      {% unless page.hide_sidebar %}
       <aside class="sponsor-box">
         <h2>Host & Sponsor</h2>
         <p class="sponsor-logo"><img src="{{page.base }}google-logo.png" alt="Google" aria-label="Google logo"></p>
@@ -77,6 +78,7 @@
           <dd>Hybrid workshop</dd>
         </dl>
       </aside>
+      {% endunless %}
       {{ content }}
     </main>
     <footer class="footer" id="footer">
