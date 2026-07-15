@@ -653,28 +653,29 @@ div.talks > details[open] > summary div.grid:after {
     cursor: pointer;
 }
 
-summary span:first-child, summary a:first-child {
+div.talks summary span:first-child,
+div.talks summary a:first-child {
     grid-column: 1;
     grid-row: 1 / -1;
     place-self: center;
     color: gray;
 }
-summary a:nth-child(2) {
+div.talks summary a:nth-child(2) {
     grid-column:2;
     grid-row:1;
 }
-summary .summary {
+div.talks summary .summary {
     grid-column: 2;
     grid-row: 2;
     padding-bottom: 2em;
 }
-summary a:nth-child(4) {
+div.talks summary a:nth-child(4) {
     grid-row: 3;
     grid-column:1 / -1;
     text-align:right;
     font-size:0.8em;
 }
-summary .summary span {
+div.talks summary .summary span {
     position: absolute;
     bottom:0;
     right:0;
@@ -1318,16 +1319,92 @@ i-slide {
   margin: 0;
 }
 
-.participation-format {
-  color: #68747a;
-  font-size: .9rem;
-  margin-left: .3rem;
-  white-space: nowrap;
+.agenda-session {
+  grid-column: 2 / -1;
+  min-width: 0;
 }
 
-.participation-format::before {
-  content: "\00b7";
-  margin-right: .3rem;
+.agenda-session > summary {
+  color: #222;
+  cursor: pointer;
+  list-style: none;
+}
+
+.agenda-session > summary::-webkit-details-marker {
+  display: none;
+}
+
+.agenda-session > summary:focus-visible {
+  outline: 3px solid #f6c344;
+  outline-offset: 4px;
+}
+
+.agenda-summary {
+  display: grid;
+  grid-template-columns: minmax(0, 2fr) minmax(12rem, 1fr);
+  gap: .35rem 1rem;
+  width: 100%;
+}
+
+.agenda-session-title {
+  color: #222;
+  font-size: 1rem;
+  font-weight: 600;
+  line-height: 1.4;
+  opacity: 1;
+}
+
+.agenda-speaker {
+  color: #555;
+  font-size: .95rem;
+  line-height: 1.4;
+}
+
+.agenda-details-label {
+  color: #005a9c;
+  font-size: .8rem;
+  font-weight: 600;
+  grid-column: 1 / -1;
+  line-height: 1.4;
+  text-decoration: underline;
+  text-underline-offset: .16em;
+}
+
+.agenda-details-label-open {
+  display: none;
+}
+
+.agenda-session[open] .agenda-details-label-closed {
+  display: none;
+}
+
+.agenda-session[open] .agenda-details-label-open {
+  display: inline;
+}
+
+.agenda-session > summary:hover .agenda-details-label {
+  color: #004477;
+}
+
+.agenda-description {
+  background: #f5f9fc;
+  border-left: 3px solid #9fc5dc;
+  margin-top: .85rem;
+  padding: .85rem 1rem;
+}
+
+.agenda-description p {
+  color: #3f4c53;
+  max-width: 60rem;
+}
+
+.agenda-description p + p {
+  margin-top: .65rem;
+}
+
+.agenda-description-pending p {
+  color: #68747a;
+  font-style: italic;
 }
 
 .agenda-break,
@@ -1380,6 +1457,34 @@ i-slide {
 
   .agenda-item > div {
     display: block;
+  }
+
+  .agenda-session {
+    grid-column: 2;
+  }
+
+  .agenda-summary {
+    display: block;
+    width: 100%;
+  }
+
+  .agenda-speaker,
+  .agenda-details-label {
+    display: block;
+    margin-top: .3rem;
+  }
+
+  .agenda-details-label-open {
+    display: none;
+  }
+
+  .agenda-session[open] .agenda-details-label-open {
+    display: block;
+  }
+
+  .agenda-description {
+    margin-left: -1.25rem;
+    padding: .75rem;
   }
 
   .agenda-item p {

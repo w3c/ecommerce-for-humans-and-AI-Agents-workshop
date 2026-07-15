@@ -85,6 +85,7 @@
         }
 
         Array.prototype.forEach.call(document.querySelectorAll("main section[id] h1, main section[id] h2, main section[id] h3, main section[id] h4, main section[id] h5"), function (el) {
+            if (el.closest('.agenda-item')) return;
             var a = createAnchorFromHeading(el);
             el.classList.add("has-ref");
             el.addEventListener("click", function () {
