@@ -1327,7 +1327,12 @@ i-slide {
 .agenda-session > summary {
   color: #222;
   cursor: pointer;
+  display: block;
   list-style: none;
+}
+
+.agenda-session > summary::marker {
+  content: "";
 }
 
 .agenda-session > summary::-webkit-details-marker {
