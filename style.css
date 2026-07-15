@@ -1312,6 +1312,16 @@ i-slide {
   margin: 0;
 }
 
+.agenda-item h3.has-ref {
+  cursor: default;
+  margin-left: 0;
+  padding-left: 0;
+}
+
+.agenda-item h3.has-ref > a.ref {
+  display: none !important;
+}
+
 .agenda-item p {
   color: #555;
   font-size: .95rem;
