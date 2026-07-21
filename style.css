@@ -1422,6 +1422,54 @@ i-slide {
   font-style: italic;
 }
 
+.agenda-breakout-description > p {
+  margin-bottom: .85rem;
+}
+
+.breakout-list {
+  display: grid;
+  gap: .75rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.breakout-list > li {
+  background: #fff;
+  border: 1px solid #c8d6de;
+  padding: .8rem 1rem;
+}
+
+.breakout-list h4 {
+  color: #005a9c;
+  font-size: .95rem;
+  margin: 0 0 .55rem;
+}
+
+.breakout-list dl {
+  display: grid;
+  gap: .35rem 1.25rem;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  margin: 0;
+}
+
+.breakout-list dl > div {
+  min-width: 0;
+}
+
+.breakout-list dt {
+  color: #40525e;
+  font-size: .75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.breakout-list dd {
+  color: #68747a;
+  font-size: .9rem;
+  margin: .1rem 0 0;
+}
+
 .agenda-break,
 .agenda-discussion,
 .agenda-opening,
@@ -1500,6 +1548,10 @@ i-slide {
   .agenda-description {
     margin-left: -1.25rem;
     padding: .75rem;
+  }
+
+  .breakout-list dl {
+    grid-template-columns: 1fr;
   }
 
   .agenda-item p {
