@@ -37,7 +37,7 @@
             const tabs = [...agendaTabs.querySelectorAll('[data-agenda-tab]')];
             const panels = tabs.map(tab => document.getElementById(tab.getAttribute('data-agenda-tab')));
 
-            const activateTab = function (index, moveFocus) {
+            const activateTab = function (index, moveFocus, updateHash) {
                 tabs.forEach(function (tab, tabIndex) {
                     const isActive = tabIndex === index;
                     tab.setAttribute('aria-selected', String(isActive));
@@ -45,6 +45,22 @@
                     panels[tabIndex].hidden = !isActive;
                 });
                 if (moveFocus) tabs[index].focus();
+                if (updateHash && window.location.hash !== '#' + panels[index].id) {
+                    window.history.pushState(null, '', '#' + panels[index].id);
+                }
+            };
+
+            const getHashIndex = function () {
+                if (!window.location.hash) return -1;
+                const hashTarget = document.getElementById(window.location.hash.substring(1));
+                return panels.findIndex(function (panel) {
+                    return hashTarget && (panel === hashTarget || panel.contains(hashTarget));
+                });
+            };
+
+            const activateHashTarget = function () {
+                const hashIndex = getHashIndex();
+                if (hashIndex >= 0) activateTab(hashIndex, false, false);
             };
 
             agendaTabs.setAttribute('role', 'tablist');
@@ -63,7 +79,7 @@
                 dayHeading.hidden = true;
 
                 tab.addEventListener('click', function () {
-                    activateTab(index, false);
+                    activateTab(index, false, true);
                 });
 
                 tab.addEventListener('keydown', function (event) {
@@ -75,13 +91,14 @@
                     else return;
 
                     event.preventDefault();
-                    activateTab(nextIndex, true);
+                    activateTab(nextIndex, true, true);
                 });
             });
 
-            const hashTarget = window.location.hash && document.querySelector(window.location.hash);
-            const initialIndex = hashTarget && hashTarget.closest('#day-2') ? 1 : 0;
-            activateTab(initialIndex, false);
+            const initialHashIndex = getHashIndex();
+            activateTab(initialHashIndex >= 0 ? initialHashIndex : 0, false, false);
+            window.addEventListener('hashchange', activateHashTarget);
+            window.addEventListener('popstate', activateHashTarget);
         }
 
         Array.prototype.forEach.call(document.querySelectorAll("main section[id] h1, main section[id] h2, main section[id] h3, main section[id] h4, main section[id] h5"), function (el) {
