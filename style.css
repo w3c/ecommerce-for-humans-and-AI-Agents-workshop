@@ -866,34 +866,46 @@ ol { margin-left: 1.5rem;}
   width: 100%;
 }
 
-.sponsor-logo-primary {
-  border-bottom: 1px solid #d5e5e9;
-  padding-bottom: .65rem;
+.sponsor-box-host {
+  margin-bottom: 1rem;
+}
+
+.sponsor-box-secondary {
+  clear: right;
+  padding-bottom: .7rem;
 }
 
 .sponsor-logo-secondary {
   align-items: center;
   display: flex;
-  gap: 1.25rem;
+  gap: 1.5rem;
   justify-content: center;
-  padding-top: .15rem;
+  padding-top: .35rem;
 }
 
 .sponsor-logo-secondary a {
   align-items: center;
   display: flex;
-  height: 2.6rem;
+  height: 3.25rem;
   justify-content: center;
-  width: 5.5rem;
+  width: 5.25rem;
 }
 
 .sponsor-logo-secondary img {
   display: block;
   height: auto;
   margin: 0;
-  max-height: 2.35rem;
-  max-width: 5.25rem;
   width: auto;
+}
+
+.sponsor-logo-secondary .sponsor-logo-gs1 {
+  height: 3rem;
+  max-width: 3.75rem;
+}
+
+.sponsor-logo-secondary .sponsor-logo-visa {
+  max-width: 5.25rem;
+  width: 5.25rem;
 }
 
 label:before, label:after {
