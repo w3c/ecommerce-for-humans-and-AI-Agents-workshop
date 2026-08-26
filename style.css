@@ -866,6 +866,36 @@ ol { margin-left: 1.5rem;}
   width: 100%;
 }
 
+.sponsor-logo-primary {
+  border-bottom: 1px solid #d5e5e9;
+  padding-bottom: .65rem;
+}
+
+.sponsor-logo-secondary {
+  align-items: center;
+  display: flex;
+  gap: 1.25rem;
+  justify-content: center;
+  padding-top: .15rem;
+}
+
+.sponsor-logo-secondary a {
+  align-items: center;
+  display: flex;
+  height: 2.6rem;
+  justify-content: center;
+  width: 5.5rem;
+}
+
+.sponsor-logo-secondary img {
+  display: block;
+  height: auto;
+  margin: 0;
+  max-height: 2.35rem;
+  max-width: 5.25rem;
+  width: auto;
+}
+
 label:before, label:after {
   content: "\a";
   white-space: pre;
