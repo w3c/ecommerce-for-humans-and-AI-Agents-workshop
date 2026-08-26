@@ -62,8 +62,14 @@
     <main>
       {% unless page.hide_sidebar %}
       <aside class="sponsor-box">
-        <h2>Host & Sponsor</h2>
-        <p class="sponsor-logo"><img src="{{page.base }}google-logo.png" alt="Google" aria-label="Google logo"></p>
+        <h2>Host &amp; Sponsors</h2>
+        <p class="sponsor-logo sponsor-logo-primary">
+          <a href="https://www.google.com/"><img src="{{page.base }}google-logo.png" alt="Google"></a>
+        </p>
+        <div class="sponsor-logo-secondary" aria-label="Additional sponsors">
+          <a href="https://www.gs1.org/"><img src="{{page.base }}gs1-logo.svg" alt="GS1"></a>
+          <a href="https://www.visa.com/"><img src="{{page.base }}visa-logo.png" alt="Visa"></a>
+        </div>
       </aside>
       <aside class="box">
         <h2>Important Dates</h2>
