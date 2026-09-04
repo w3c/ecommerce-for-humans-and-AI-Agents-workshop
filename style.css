@@ -454,7 +454,7 @@ address {
     transform: none;
   }
 
-  .sponsor-box {
+  .event-support-panel {
     float: none;
     margin: 0 0 1.5rem;
     width: auto;
@@ -837,7 +837,7 @@ ol { margin-left: 1.5rem;}
   }
 }
 
-.sponsor-box {
+.event-support-panel {
   background: #f2fdff;
   border: 1px solid #ccc;
   box-shadow: .3em .3em 0 rgba(0,0,0,.1);
@@ -848,34 +848,34 @@ ol { margin-left: 1.5rem;}
   width: 19em;
 }
 
-.sponsor-box h2 {
+.event-support-panel h2 {
   font-size: 1.1rem;
   margin: 0 0 .35rem;
 }
 
-.sponsor-logo {
+.event-support-logo {
   color: #005a9c;
   font-size: 1.7rem;
   font-weight: bold;
   margin: 0;
 }
 
-.sponsor-logo img {
+.event-support-logo img {
   margin: .1rem auto 0;
   max-width: 9.5rem;
   width: 100%;
 }
 
-.sponsor-box-host {
+.event-support-panel-primary {
   margin-bottom: 1rem;
 }
 
-.sponsor-box-secondary {
+.event-support-panel-secondary {
   clear: right;
   padding-bottom: .7rem;
 }
 
-.sponsor-logo-secondary {
+.event-support-logos {
   align-items: center;
   display: flex;
   gap: 1.5rem;
@@ -883,7 +883,7 @@ ol { margin-left: 1.5rem;}
   padding-top: .35rem;
 }
 
-.sponsor-logo-secondary a {
+.event-support-logos a {
   align-items: center;
   display: flex;
   height: 3.25rem;
@@ -891,19 +891,19 @@ ol { margin-left: 1.5rem;}
   width: 5.25rem;
 }
 
-.sponsor-logo-secondary img {
+.event-support-logos img {
   display: block;
   height: auto;
   margin: 0;
   width: auto;
 }
 
-.sponsor-logo-secondary .sponsor-logo-gs1 {
+.event-support-logos .event-support-logo-gs1 {
   height: 3rem;
   max-width: 3.75rem;
 }
 
-.sponsor-logo-secondary .sponsor-logo-visa {
+.event-support-logos .event-support-logo-visa {
   max-width: 5.25rem;
   width: 5.25rem;
 }
