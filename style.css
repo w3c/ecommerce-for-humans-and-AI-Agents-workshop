@@ -62,7 +62,7 @@ header #translations {
 
 #top {
   background-color: #f2fdff;
-  background-image: url("banner.jpg");
+  background-image: url("banner-blue.webp");
   background-repeat: no-repeat;
   background-position: right top;
   background-size: 112% auto;
@@ -71,30 +71,9 @@ header #translations {
   position: relative;
 }
 
-#top::before {
-  background:
-    linear-gradient(
-      90deg,
-      rgba(239, 246, 250, .96) 0%,
-      rgba(220, 235, 246, .84) 34%,
-      rgba(142, 181, 212, .48) 64%,
-      rgba(0, 85, 145, .48) 100%
-    ),
-    linear-gradient(
-      180deg,
-      rgba(239, 246, 250, .34) 0%,
-      rgba(0, 74, 135, .44) 100%
-    );
-  content: "";
-  inset: 0;
-  pointer-events: none;
-  position: absolute;
-  z-index: 0;
-}
-
 #top.small {
     background-color: black;
-  background-image: url("banner.jpg");
+  background-image: url("banner-blue.webp");
   background-repeat: no-repeat;
   background-size: contain;
   min-height: 100px;
@@ -106,7 +85,6 @@ header #translations {
   font-size: 1.12rem;
   font-weight: bold;
   margin: .65rem 0;
-  text-shadow: 0 1px 2px rgba(255, 255, 255, .92);
 }
 
 #top h1 {
@@ -797,13 +775,7 @@ ol { margin-left: 1.5rem;}
 #top hgroup {
   -webkit-backdrop-filter: blur(3px) saturate(1);
   backdrop-filter: blur(3px) saturate(1);
-  background:
-    linear-gradient(
-      135deg,
-      rgba(255, 255, 255, .34) 0%,
-      rgba(244, 252, 255, .2) 58%,
-      rgba(176, 209, 255, .1) 100%
-    );
+  background: hsla(0,0%,100%,0.6);
   border-radius: .75rem;
   box-shadow:
     0 1.8rem 4.8rem rgba(0, 90, 156, .16),
@@ -813,18 +785,6 @@ ol { margin-left: 1.5rem;}
   position: relative;
 }
 
-#top hgroup::before {
-  background: linear-gradient(
-    120deg,
-    rgba(255, 255, 255, .24) 0%,
-    rgba(255, 255, 255, .08) 34%,
-    rgba(255, 255, 255, 0) 68%
-  );
-  content: "";
-  inset: 0;
-  pointer-events: none;
-  position: absolute;
-}
 
 @media all and (min-width: 861px) {
   #top hgroup {
