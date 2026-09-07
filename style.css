@@ -1468,6 +1468,16 @@ i-slide {
   margin-bottom: .85rem;
 }
 
+.agenda-item > .agenda-room-information {
+  grid-column: 2 / -1;
+  margin-top: -.55rem;
+}
+
+.agenda-room-information a {
+  font-size: .85rem;
+  font-weight: 600;
+}
+
 .breakout-list {
   display: grid;
   gap: .75rem;
@@ -1510,6 +1520,46 @@ i-slide {
   color: #68747a;
   font-size: .9rem;
   margin: .1rem 0 0;
+}
+
+.breakout-rooms > p {
+  max-width: 60rem;
+}
+
+.breakout-room-table-wrapper {
+  margin-top: 1.5rem;
+  max-width: 100%;
+  overflow-x: auto;
+}
+
+.breakout-room-table {
+  min-width: 52rem;
+  width: 100%;
+}
+
+.breakout-room-table caption {
+  color: #005a9c;
+  font-size: 1.1rem;
+  font-weight: 600;
+  padding: 0 0 .65rem;
+  text-align: left;
+}
+
+.breakout-room-table th,
+.breakout-room-table td {
+  padding: .65rem .75rem;
+  text-align: left;
+  vertical-align: top;
+}
+
+.breakout-room-table tbody th {
+  background: #f2f7fa;
+  color: #222;
+}
+
+.breakout-room-table code {
+  color: #40525e;
+  font-size: .85rem;
 }
 
 .agenda-break,
