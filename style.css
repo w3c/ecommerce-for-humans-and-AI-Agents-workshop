@@ -1371,6 +1371,21 @@ i-slide {
   opacity: 1;
 }
 
+.agenda-slides-link {
+  color: #005a9c;
+  display: inline-block;
+  font-size: .8rem;
+  margin-inline-start: .4rem;
+  text-decoration: underline;
+  text-underline-offset: .16em;
+  white-space: nowrap;
+}
+
+.agenda-slides-link:focus-visible {
+  outline: 3px solid #f6c344;
+  outline-offset: 3px;
+}
+
 .agenda-speaker {
   color: #555;
   font-size: .95rem;
