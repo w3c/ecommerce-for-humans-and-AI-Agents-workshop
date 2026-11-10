@@ -1689,12 +1689,20 @@ th { background-color: #005a9c; color: white;}
   padding: 0 1.5rem;
 }
 
-.report-toc ol ol {
-  margin: .25rem 0;
+.report-toc ol {
+  list-style: none;
+  padding-left: 0;
 }
 
 .report-toc li {
+  display: grid;
+  grid-template-columns: 2.5rem 1fr;
   margin: .25rem 0;
+}
+
+.report-toc li > ol {
+  grid-column: 2;
+  margin: .25rem 0 0;
 }
 
 .report-takeaways {
