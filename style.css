@@ -1677,3 +1677,115 @@ table {
 }
 th, td { border: thin solid gray;}
 th { background-color: #005a9c; color: white;}
+
+/* Workshop report */
+.workshop-report .report-status {
+  max-width: none;
+  margin-bottom: 2rem;
+}
+
+.report-toc {
+  border-left: 4px solid #005a9c;
+  padding: 0 1.5rem;
+}
+
+.report-toc ol ol {
+  margin: .25rem 0;
+}
+
+.report-toc li {
+  margin: .25rem 0;
+}
+
+.report-takeaways {
+  background: #f2fdff;
+  border: thin solid #005a9c;
+  border-radius: 3px;
+  padding: 0 1.5rem;
+}
+
+.report-takeaways li {
+  margin-bottom: .75rem;
+}
+
+.workshop-report h3 {
+  margin-top: 2rem;
+}
+
+.workshop-report section section {
+  margin-top: 2.5rem;
+}
+
+.report-columns {
+  columns: 2 22em;
+  column-gap: 2.5rem;
+}
+
+.report-columns li {
+  break-inside: avoid;
+  margin-bottom: .5rem;
+}
+
+.report-table-wrapper {
+  margin: 1.5rem 0;
+  overflow-x: auto;
+}
+
+.report-table {
+  font-size: .95rem;
+  width: 100%;
+}
+
+.report-table caption {
+  font-weight: 700;
+  padding-bottom: .5rem;
+  text-align: left;
+}
+
+.report-table th,
+.report-table td {
+  padding: .5rem .75rem;
+  text-align: left;
+  vertical-align: top;
+}
+
+.report-table th[scope="row"] {
+  background-color: #e8f1f8;
+  color: #333;
+  min-width: 11em;
+}
+
+.report-meta {
+  color: #555;
+  font-size: .9em;
+  font-weight: 400;
+}
+
+.report-horizons dt {
+  color: #005a9c;
+  font-weight: 700;
+  margin-top: 1rem;
+}
+
+.report-horizons dd {
+  margin-left: 1.5rem;
+}
+
+.report-programme li {
+  margin-bottom: .5rem;
+}
+
+.report-method {
+  color: #555;
+  font-size: .95rem;
+}
+
+.talk-links {
+  font-size: .9em;
+  white-space: nowrap;
+}
+
+.video-placeholder {
+  color: #666;
+  font-style: italic;
+}
