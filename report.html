@@ -1,0 +1,383 @@
+---
+title: Report
+layout: subpage
+hide_sidebar: true
+---
+<section id="report" class="workshop-report">
+
+  <div class="note report-status" role="note">
+    <p><strong>Note:</strong> This report is a draft and has not yet been finalized, and this report was also drafted with an AI assistant. Reviews and comments are welcome. Please send feedback by <a href="https://github.com/w3c/ecommerce-for-humans-and-AI-Agents-workshop/issues/new">opening an issue in the workshop repository</a>.</p>
+  </div>
+
+  <nav class="report-toc" aria-labelledby="toc-heading">
+    <h2 id="toc-heading">Contents</h2>
+    <ol>
+      <li><a href="#summary">Executive summary</a></li>
+      <li><a href="#about">About the workshop</a></li>
+      <li><a href="#landscape">The landscape: a layered view</a></li>
+      <li><a href="#themes">What we heard</a>
+        <ol>
+          <li><a href="#theme-protocols">One Web, many protocols</a></li>
+          <li><a href="#theme-legible">Making the Web legible to agents</a></li>
+          <li><a href="#theme-product">Product identity and authoritative product data</a></li>
+          <li><a href="#theme-agent-identity">Agent identity, delegation and authority</a></li>
+          <li><a href="#theme-human">The human in the loop: intent, confirmation and the last reversible moment</a></li>
+          <li><a href="#theme-liability">Merchants, payments, liability and law</a></li>
+          <li><a href="#theme-inclusion">Beyond the screen: accessibility, the physical world and society</a></li>
+        </ol>
+      </li>
+      <li><a href="#breakouts">Breakout sessions</a></li>
+      <li><a href="#next-steps">Outcomes and next steps</a></li>
+      <li><a href="#outlook">Outlook and open questions</a></li>
+      <li><a href="#thanks">Acknowledgements</a></li>
+    </ol>
+  </nav>
+
+  <section id="summary" aria-labelledby="summary-heading">
+    <h2 id="summary-heading">1. Executive summary</h2>
+    <p>The W3C/GS1 Workshop on <em>E-commerce for Humans and AI Agents</em> took place on 8&ndash;9 September 2026 in Zurich and online, hosted by Google, sponsored by Google, GS1, and Visa. It brought together 94 in-person and around 80 remote participants: global brands and retailers, AI and commerce platforms, payment networks and providers, identity and security vendors, GS1 Member Organisations, accessibility experts, lawyers and Web standards practitioners. Over two days the workshop heard 25 presentations and ran eight participant-led breakout sessions.</p>
+    <p>The starting point was simple. The Web was built for people, but AI agents now read it, summarise it and increasingly act on it, they search, compare, fill baskets and pay on behalf of users. The workshop did not try to pick a winning protocol. Its goal was to narrow the problem, what has to be true for agent-mediated commerce to be trustworthy for shoppers and merchants, while keeping the Web open?</p>
+
+    <div class="report-takeaways">
+      <h3 id="takeaways-heading">Key takeaways</h3>
+      <ol>
+        <li><strong>Many protocols, one Web.</strong> UCP, ACP, MCP, A2A, AP2, TASP and WebMCP will coexist. Participants did not want a single winner; they want a shared foundation underneath them and a way for a merchant to <q>publish once</q> rather than once per agent ecosystem. Progressive enhancement of the existing Web emerged as a widely shared design principle.</li>
+        <li><strong>Agent protocols say who is acting, but not what is being bought.</strong> None of the protocols presented defines product identity. <q>Similarity is not identity</q>: an agent can do everything right and still deliver the wrong product. GS1 identifiers expressed as GS1 Digital Link URIs were proposed as the open, brand-controlled, extensible identity that protocols could reference.</li>
+        <li><strong>Authoritative data beats more capable guessing up to a point.</strong> Evidence presented ranged from <q>bet on the models</q> to <q>better information lets you use a dumber model</q>. For safety-critical facts such as allergens, participants agreed that brand-authoritative, declared data is required: <q>absence of a claim is not a claim of absence</q>.</li>
+        <li><strong>The data exists, but agents cannot find it.</strong> Rich product data sits in closed networks, empty resolvers and pages without structure. Discovery (sitemaps, well-known entry points, feed attributes, agreements with platforms) is the most immediate gap.</li>
+        <li><strong>Trust needs layers: agent identity, delegated authority and evidence.</strong> Know-Your-Agent (KYA) proposals, signed intents and mandates, and verifiable credentials converged on the same pattern: a human or organisational principal, a bounded and revocable grant, and cryptographic evidence of what was authorised. Adoption by agent platforms is the open question.</li>
+        <li><strong>The decisive moment is the confirmation.</strong> Several talks independently described the same failure: an agent stays within budget but commits the user to something else, such as a yearly subscription. A deterministic, trusted confirmation surface and a check at <q>the last reversible moment</q> were seen as essential, at least for now.</li>
+        <li><strong>Liability is set by law, but standards preserve the facts.</strong> Merchants asked for an open agent identity standard, a standard evidence package for disputes and portability of payment credentials. Legal speakers stressed that a single agent purchase bundles distinct legal acts, and that standards should make identity, authorisation and provenance legible to courts.</li>
+        <li><strong>Accessibility and agent-readiness are allies.</strong> Screen readers and agents rely on the same semantics. Making pages accessible also makes them more usable by agents, as accessibility once helped the Web move to mobile. Not everyone will use, or can afford, an agent; the Web must keep serving them.</li>
+      </ol>
+    </div>
+
+    <p>The workshop also produced a division of labour. GS1 will continue work on product identity, vocabularies and the publication of brand-authorised product data, including a proposed joint experiment with brands and technology companies. W3C will focus on the Web platform: WebMCP and agent interaction with Web applications, co-browsing by humans and agents, trusted confirmation and payment primitives, and the use of credentials, in coordination with IETF, FIDO Alliance and EMVCo work. Since the workshop, these directions have been presented at <a href="https://www.w3.org/2026/10/28-ecommerce-minutes.html">TPAC 2026</a>, and W3C is discussing a charter for a <a href="https://github.com/w3c/strategy/issues/576">proposed Agentic Web Working Group</a> that would include WebMCP. See section 6, <a href="#next-steps">Outcomes and next steps</a>.</p>
+  </section>
+
+  <section id="about" aria-labelledby="about-heading">
+    <h2 id="about-heading">2. About the workshop</h2>
+    <p>The <a href="agenda.html">agenda</a> includes links to video recordings of the plenary presentations and all slides used.</p>
+
+    <h3 id="background">Background and goals</h3>
+    <p>Web content has historically been designed for humans, even when pages also expose structured data such as <a href="https://schema.org/">schema.org</a> and the <a href="https://ref.gs1.org/voc/">GS1 Web Vocabulary</a>. Large language models and AI agents are now a new intermediary between that content and end users. The <a href="cfp.html">Call for Participation</a> asked what practices help retailers, brands, content creators, AI agent providers and data providers remain visible and useful through protocols such as MCP, UCP and ACP, while keeping the Web open rather than forcing content creators into closed or semi-closed ecosystems.</p>
+    <p>The workshop was jointly organized by W3C and GS1. As the chairs explained in the opening session, the two organizations bring complementary pieces: GS1 brings product identity and the brands and retailers who rely on it, while W3C brings the Web platform, credentials, payments and the horizontal principles of accessibility, privacy, security and internationalization. <q>It's only by coming together</q>, said Phil Archer, that the two communities can hope to address the problem.</p>
+
+    <h3 id="format">Format</h3>
+    <p>The workshop ran over two days in a hybrid format at Google's Zurich offices.</p>
+    <ul>
+      <li><strong>Day 1</strong> focused on how the Web and AI agents interact: agentic commerce protocols, in-browser agents, accessibility, product data and identity, vocabularies, connected packaging and spatial commerce.</li>
+      <li><strong>Day 2</strong> focused on trust: agents in the physical world, merchant and payment perspectives, agent identity and authorisation, runtime assurance, liability and consumer law, and verifiable product data.</li>
+      <li>Each afternoon, participants pitched and ran unconference-style breakout sessions, four per day, which then reported back to the plenary. Day 2 closed with a discussion of conclusions and next steps.</li>
+    </ul>
+    <p>Speakers were selected by the Programme Committee from position statements and expressions of interest submitted through the <a href="https://github.com/w3c/ecommerce-for-humans-and-AI-Agents-workshop/issues">workshop repository</a>. Slides and recordings are linked from the <a href="agenda.html">agenda</a> and next to each presentation in <a href="#themes">section 4</a>.</p>
+
+    <h3 id="participation">Participation</h3>
+    <p>The workshop was heavily oversubscribed. There were 94 registered in-person participants and around 80 remote participants. Participants came from:</p>
+    <ul class="report-columns">
+      <li>global brands and retailers (for example Ahold Delhaize, L'Or&eacute;al, Mars, Migros, Nestl&eacute;, Procter &amp; Gamble, Richemont, Unilever)</li>
+      <li>AI, search and commerce platforms (for example Amazon, Google, Meta, OpenAI, Shopify, Tencent)</li>
+      <li>payment networks and providers (for example Ant Group, China UnionPay, PayPal, Stripe, Visa)</li>
+      <li>identity, security and trust providers (for example Fime, Skyfire, Vouched, Private Identity, OpenWallet Foundation)</li>
+      <li>GS1 Global Office and more than a dozen GS1 Member Organisations</li>
+      <li>telecoms and devices (Ericsson, Huawei, Samsung), media (BBC, News Corp) and insurance (Zurich Insurance)</li>
+      <li>accessibility specialists, lawyers, consultants, researchers and the W3C community</li>
+    </ul>
+    <p>Many participants remarked on the mix itself. Phil Archer noted that <q>at a W3C event, you've got companies like Bosch, Nestl&eacute;, Unilever and Procter &amp; Gamble. That doesn't normally happen.</q> Philippe Le H&eacute;garet observed that this was <q>one of the first times I've seen those communities really collide</q>: people who build Web standards and people who did not yet know what WebMCP is.</p>
+  </section>
+
+  <section id="landscape" aria-labelledby="landscape-heading">
+    <h2 id="landscape-heading">3. The landscape: a layered view</h2>
+    <p>Participants repeatedly observed that discussions tended to address one layer of the <q>cake</q> of agentic commerce at a time. The notes below are the report authors' synthesis of those layers, the question each one answers, and where the workshop located the main gaps. It is a reading aid, not a proposed architecture.</p>
+    <div class="report-table-wrapper" role="region" aria-labelledby="layers-caption" tabindex="0">
+      <table class="report-table">
+        <caption id="layers-caption">Layers of agent-mediated commerce discussed at the workshop</caption>
+        <thead>
+          <tr>
+            <th scope="col">Layer</th>
+            <th scope="col">Question it answers</th>
+            <th scope="col">Examples discussed</th>
+            <th scope="col">Main gap identified</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th scope="row">Product identity and data</th>
+            <td>What exactly is this product, and who may speak for it?</td>
+            <td>GTIN, GS1 Digital Link, GS1 Web Vocabulary, schema.org, GDSN, Verified by GS1, EPCIS</td>
+            <td>Product identity is absent from agent protocols; authority to speak for a product is not machine-checkable</td>
+          </tr>
+          <tr>
+            <th scope="row">Discovery and surface</th>
+            <td>How does an agent find the right, current information?</td>
+            <td>Resolvers and linksets, well-known manifests, llms.txt, NLWeb, feeds, sitemaps</td>
+            <td>Fragmented entry points; data not crawled or not findable; absence not declared</td>
+          </tr>
+          <tr>
+            <th scope="row">Interaction and actions</th>
+            <td>How does an agent act on a site or service?</td>
+            <td>WebMCP, MCP, A2A, UCP, ACP, TASP, browser automation</td>
+            <td>No shared tool shapes; UI desync, navigation and observability issues; the long tail cannot keep up</td>
+          </tr>
+          <tr>
+            <th scope="row">Agent identity</th>
+            <td>Who is this agent, and who stands behind it?</td>
+            <td>KYAPay, KYA-OS, Web Bot Auth, network trusted-agent programmes, DIDs</td>
+            <td>Adoption by agent platforms; revocation; privacy; uncooperative agents</td>
+          </tr>
+          <tr>
+            <th scope="row">Delegation and intent</th>
+            <td>What did the human authorise?</td>
+            <td>A4P signed intents, AP2 mandates, Verifiable Intent, VC-based grants</td>
+            <td>Intent as interpreted by the agent differs from what the human meant; deviations and amendments</td>
+          </tr>
+          <tr>
+            <th scope="row">Confirmation and acceptance</th>
+            <td>May this exact effect happen now?</td>
+            <td>Trusted surfaces, Digital Credentials API, passkeys, Action Acceptance</td>
+            <td>No standard deterministic confirmation surface; no shared <q>hold</q> semantics</td>
+          </tr>
+          <tr>
+            <th scope="row">Payment</th>
+            <td>How is value transferred safely?</td>
+            <td>Agentic network tokens, Digital Payment Credentials, Payment Request, x402</td>
+            <td>Human-not-present step-up; recurring payments; routing and token portability</td>
+          </tr>
+          <tr>
+            <th scope="row">Evidence and liability</th>
+            <td>What happened, and who is responsible?</td>
+            <td>Evidence packages, signed receipts, tamper-evident logs, runtime assessment</td>
+            <td>No standard evidence package; law assumes a human at the moment of commitment</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section id="themes" aria-labelledby="themes-heading">
+    <h2 id="themes-heading">4. What we heard</h2>
+    <p>This section summarises the presentations and discussions by theme rather than in programme order. Names in parentheses refer to presenters; links to each presentation's slides and video recording follow the presenter's name.</p>
+
+    <section id="theme-protocols" aria-labelledby="theme-protocols-heading">
+      <h3 id="theme-protocols-heading">4.1 One Web, many protocols</h3>
+      <p>The workshop opened with the two most visible agentic commerce protocols and two different philosophies.</p>
+      <p><strong>Universal Commerce Protocol.</strong> Amit Handa (Google) <span class="talk-links">(<a href="https://www.w3.org/2026/09/ecommerce-agents/slides/Amit_Handa.pdf">slides</a>, <span class="video-placeholder" data-video="Amit_Handa">video to be added</span>)</span> presented UCP as a <q>common language</q> for commerce, motivated by the shift from <q>show me</q> to <q>help me</q> to <q>do it for me</q>. UCP is modular: services (commercial domains such as shopping, and now food ordering and lodging), capabilities (catalogue, cart, checkout), extensions, transports (REST, MCP and A2A rather than a new transport), profiles for discovery, and payment handlers. It is open source, with around thirty organisations in its councils by September 2026. <q>Our goal is not to replace any standard</q>, he said, and <q>we don't want one standard to rule the world.</q> Questions from the floor highlighted that the product data schema is still immature, that brands which are not the merchant of record have no defined role, and that schemas need to be easier to find and contribute to.</p>
+      <p><strong>Progressive enhancement.</strong> Riley Strong (OpenAI) <span class="talk-links">(<a href="https://www.w3.org/2026/09/ecommerce-agents/slides/Riley_Strong.pdf">slides</a>, <span class="video-placeholder" data-video="Riley_Strong">video to be added</span>)</span> shared lessons from Instant Checkout and the Agentic Commerce Protocol (ACP): requiring a full end-to-end integration set too high a bar, and <q>commerce isn't just one journey</q>. OpenAI's answer is to apply the Web's oldest design principle. <q>Agents should work wherever the web works.</q> The open Web is the baseline; sites add agent-native enhancements step by step for four primitives: actions (for example WebMCP tools), identity (delegated access through OAuth, WebAuthn and passkeys), authority (explicit limits such as spend caps, ideally cryptographically signed) and payments (for example the Payment Request API or x402). Rapidly improving computer-use models make the baseline steadily more capable.</p>
+      <p><strong>It&rsquo;s a crowded field.</strong> Other presentations added more pieces: Huawei's Trusted Agentic Service Protocol framework and A4P authorisation protocol (Yukuan Jia), Google's AP2 and Mastercard's Verifiable Intent are now being harmonised in the FIDO Alliance (Jean-Luc Di Manno), and KYA proposals at the IETF and the Decentralized Identity Foundation (Skyfire, Vouched). Andrea Volpini (WordLift) listed more than ten agent runtimes and argued that <q>the graph stays, the runtimes come and go</q>. Yukuan Jia asked W3C to lead a protocol-neutral interoperability framework: a minimal common layer of shared semantics, protocol mappings and verifiable evidence, rather than forcing everything into one protocol. Paola Di Maio (W3C AI Knowledge Representation Community Group) <span class="talk-links">(<a href="https://www.w3.org/2026/09/ecommerce-agents/slides/Paola_Di_Maio.pdf">slides</a>, <span class="video-placeholder" data-video="Paola_Di_Maio">video to be added</span>)</span> showed that the protocols partly reuse and partly fork established vocabularies, and that divergence <q>concentrates exactly where trust and agency begin</q>.</p>
+      <p>The direction that emerged was not to choose between protocols but to strengthen what they share: the Web platform, open vocabularies and identifiers, and common trust primitives. One breakout participant summed up why data deserves separate attention from protocols: <q>data ages like wine and software ages like fish.</q></p>
+    </section>
+
+    <section id="theme-legible" aria-labelledby="theme-legible-heading">
+      <h3 id="theme-legible-heading">4.2 Making the Web legible to agents</h3>
+      <p><strong>WebMCP in production.</strong> Yoav Weiss (Shopify) <span class="talk-links">(<a href="https://www.w3.org/2026/09/ecommerce-agents/slides/Yoav_Weiss.pdf">slides</a>, <span class="video-placeholder" data-video="Yoav_Weiss">video to be added</span>)</span> described three ways buyer agents reach merchants: back-end UCP over MCP, embedded MCP Apps, and in-browser agents. Only the last is, in his words, truly <q>the agentic web</q>, and <q>we need the in-browser experience to be the better experience</q>. In-browser agents today rely on screenshots and DOM actuation, which is <q>slow, expensive and fragile</q>. Shopify ships WebMCP on its storefronts, so that pages register tools with explicit schemas that run in the user's session. Lessons learned: mirroring back-end APIs as tools left the screen out of sync, so Shopify routes agent actions through the same events as human actions (<q>a single execution path for both human flows and agentic flows</q>); every navigation tears down registered tools; and sites have no signal of whether an agent session succeeded. Shopify asked for a way to declare that a tool follows a UCP shape, a WebMCP equivalent of skills, a user-in-the-loop (elicitation) primitive for checkout, tools that survive navigation, and <q>real user measurements for agentic UX</q>.</p>
+      <p><strong>Accessibility as common ground.</strong> L&eacute;onie Watson (TetraLogical) <span class="talk-links">(<a href="https://www.w3.org/2026/09/ecommerce-agents/slides/Leonie_Watson.pdf">slides</a>, <span class="video-placeholder" data-video="Leonie_Watson">video to be added</span>)</span> showed what online shopping is like for a blind shopper: basic flows work, but product information lives in images without useful text alternatives, so <q>for every six items I will buy on an online store, I will send back at least five</q>. Generative image description built into her screen reader is transformative but laborious, image by image. Agents and screen readers use the same browser model: the DOM, the accessibility tree and HTML semantics. <q>We've all got a lot of common ground in what we need from the web.</q> WebMCP will not help screen readers directly, because they are reactive by design, but it helps agents acting on behalf of disabled users, such as an agent now being trialled alongside a popular screen reader. She also asked that agent models represent disabled people accurately.</p>
+      <p><strong>Entity pages and <q>Terms of Action</q>.</strong> Andrea Volpini (WordLift) <span class="talk-links">(<a href="https://www.w3.org/2026/09/ecommerce-agents/slides/Andrea_Volpini.pdf">slides</a>, <span class="video-placeholder" data-video="Andrea_Volpini">video to be added</span>)</span> asked: <q>what is the equivalent of schema.org for LLMs?</q> In WordLift's experiment across four domains and 349 questions, publishing enhanced entity pages improved answer quality by about 30% relative to plain HTML, much more than embedding JSON-LD alone. With good information, a simple retrieval pipeline performed as well as an agentic one: <q>if I increase the quality of the information, I can get a dumber model and save a lot of tokens.</q> He proposed <q>Terms of Action</q>, a business-declared binding between entities and the actions an agent may take (owned, handed off to a partner, informational only), discoverable and exposed through WebMCP, UCP or MCP.</p>
+      <p><strong>Publish once.</strong> Francesco Marinoni Moretto <span class="talk-links">(<a href="https://www.w3.org/2026/09/ecommerce-agents/slides/Francesco_Marinoni_Moretto.pdf">slides</a>, <span class="video-placeholder" data-video="Francesco_Marinoni_Moretto">video to be added</span>)</span> argued that agents <q>guess when guessing is cheaper than knowing</q>, and that <q>blocking doesn't reduce bad behavior, it just selects for it</q>. A worked example on a regional tourism portal showed pages with no machine-readable content, every URL answering 200 with identical bytes, documented APIs that did not match production, and terms of use that an automated client could not see. His ask: <q>a merchant should only have to publish once, not one surface per ecosystem</q>, at one agreed well-known entry point, able to declare absence (<q>say no</q>), with terms co-located with resources. His LAR (Layered Agentic Retrieval) draft is offered for adoption by any existing effort.</p>
+      <p><strong>Who speaks for the brand?</strong> Gianmaria Monteleone (Veliu) <span class="talk-links">(<a href="https://www.w3.org/2026/09/ecommerce-agents/slides/Gianmaria_Monteleone.pdf">slides</a>, <span class="video-placeholder" data-video="Gianmaria_Monteleone">video to be added</span>)</span> warned that chat interfaces flatten every brand into the same generic product card. Generative interfaces can compose a page for each buyer, but only from pre-approved, brand-owned components and sources, so that <q>every block should have a single source of truth</q> and nothing is invented. He suggested that protocols like UCP, which already let merchants declare capabilities, could carry brand-approved knowledge and design intent, and that the ecosystem needs ways to measure whether agents preserve that fidelity.</p>
+      <p><strong>Do websites need to change?</strong> This was debated in two breakouts and in the closing session without a settled answer. One view held that <q>we will succeed if we don't make the merchants do anything</q>, as models learn to use pages built for humans. Another held that lightweight layers such as WebMCP are cheap and pay for themselves in latency and tokens: <q>WebMCP done right is effectively web performance for agents.</q> All agreed that the long tail of small merchants will not change soon, that merchants cannot invest without being able to measure agent traffic, and that one Web serving humans and agents is preferable to a separate agent infrastructure. A participant in the closing discussion suggested a useful framing: accessibility helps less capable models, WebMCP with data helps mid-tier models, and frontier models need neither, so investment in accessibility serves all.</p>
+    </section>
+
+    <section id="theme-product" aria-labelledby="theme-product-heading">
+      <h3 id="theme-product-heading">4.3 Product identity and authoritative product data</h3>
+      <p>For brands and retailers, the most immediate concern was not protocols but product truth. In the opening session Phil Archer described a GS1 community that is <q>terrified</q>: in the old model a brand's data flowed through a controlled pipeline to a retailer that knew its customers; in the agentic model product data must be public, and a retailer may never know it lost a sale.</p>
+      <p><strong>Similarity is not identity.</strong> Paula Rivero (Digital Link) <span class="talk-links">(<a href="https://www.w3.org/2026/09/ecommerce-agents/slides/Paula_Rivero.pdf">slides</a>, <span class="video-placeholder" data-video="Paula_Rivero">video to be added</span>)</span> described an agent asked to <q>reorder my usual curly-hair shampoo</q> that searched, compared and paid flawlessly, and delivered a different product from the same brand. <q>The agent got every verb right, but it got the noun wrong.</q> As retail moves from linear barcodes to 2D codes, GS1 Digital Link gives every product a Web identity that resolves, through a standard linkset, to brand-controlled information at the level of the product type, the batch or the individual item. Agents should infer intent from the conversation, but resolve identity from the brand's authoritative source: <q>the intelligence of the agent remains, but the guess disappears.</q> Product identities, she argued, <q>must not belong to one platform</q>.</p>
+      <p><strong>The GTIN is not always the primary key.</strong> John Howe (Mars) and Alfonso Bravi (K10X) <span class="talk-links">(<a href="https://www.w3.org/2026/09/ecommerce-agents/slides/Alfonso_Bravi_John_Howe.pdf">slides</a>, <span class="video-placeholder" data-video="Alfonso_Bravi_John_Howe">video to be added</span>)</span> showed that online content matches the physical pack only about half the time, and that AI is <q>often confidently wrong</q> about critical facts such as allergens. Many real changes, such as cross-contamination from a new line, reformulation or promotional artwork, do not change the GTIN. Their pilot, part of the SmartFacts programme with GS1 Australia, serves one brand-hosted record to humans and machines through content negotiation, resolves at the level of the Consumer Pack Variant, and refuses to answer rather than guess when a variant is unknown. <q>Absence of a claim is not a claim of absence.</q> They asked whether the full resolvable URI, rather than the bare GTIN, should travel with product records, and how a brand's catalogue could become discoverable <q>sideways</q> on the open Web.</p>
+      <p><strong>Who may speak for a product?</strong> Sven B&ouml;ckelmann (benelog) <span class="talk-links">(<a href="https://www.w3.org/2026/09/ecommerce-agents/slides/Sven_Boeckelmann.pdf">slides</a>, <span class="video-placeholder" data-video="Sven_Boeckelmann">video to be added</span>)</span> pointed out that Digital Link resolution says where data is and a signature says who signed it, but neither says whether the signer may speak about that GTIN, or make that kind of statement: <q>a retailer selling: normal. A retailer announcing a recall: not.</q> Anyone can host a valid Digital Link for any GTIN. He proposed building an entitlement check from the GS1 licence registry, licence-chain verifiable credentials (on the model of GLEIF's vLEI) and published roles. Wajih Rehman (Fabacus) <span class="talk-links">(<a href="https://www.w3.org/2026/09/ecommerce-agents/slides/Wajih_Rehman.pdf">slides</a>, <span class="video-placeholder" data-video="Wajih_Rehman">video to be added</span>)</span> made a parallel case for licensed products, where nothing links a licensee's GTIN to the licensor's rights and approvals: <q>in agentic commerce, trust is no longer inferred. It is computed</q>, and <q>real trust has to come with receipts</q>. Branimir Raki&#263; (OriginTrail) <span class="talk-links">(<a href="https://www.w3.org/2026/09/ecommerce-agents/slides/Branimir_Rakic.pdf">slides</a>, <span class="video-placeholder" data-video="Branimir_Rakic">video to be added</span>)</span> showed how verifiable, signed knowledge assets built on RDF, verifiable credentials and EPCIS can carry provenance and integrity, while noting that <q>product authority requires its own evidence</q>.</p>
+      <p><strong>Packaging as the first handshake.</strong> Jenny Stanley (Appetite Creative) <span class="talk-links">(<a href="https://www.w3.org/2026/09/ecommerce-agents/slides/Jenny_Stanley.pdf">slides</a>, <span class="video-placeholder" data-video="Jenny_Stanley">video to be added</span>)</span> presented connected packaging as the bridge between the shelf and the agent, with survey data showing that more than 80% of brands surveyed plan connected packaging. With GS1 Sunrise 2027 driving the move to 2D barcodes, she urged brands to use open GS1 Digital Link rather than proprietary QR platforms, which leave product data <q>invisible to agentic commerce</q>.</p>
+      <p><strong>Vocabularies.</strong> A mature, open vocabulary stack already exists: schema.org, the GS1 Web Vocabulary, GS1 Digital Link link types and UN/CEFACT. Paola Di Maio asked whether agent-facing product data should be required to reference an open vocabulary, who maintains crosswalks to protocol schemas, and how a resolution path should be declared. Breakouts proposed mapping overlapping retailer and platform feed attributes to schema.org and the GS1 Web Vocabulary before they diverge further, and defining a minimum set of attributes that agents need.</p>
+      <p><strong>The discovery gap.</strong> A GS1 Netherlands proof of concept showed that Digital Link with the GS1 Web Vocabulary works well for agents that are pointed at it, but that public LLMs do not find it. A Google Shopping participant noted that there is currently no Digital Link attribute in Google's shopping feed, so <q>the pieces are simply not connected</q>. Resolvers were described as <q>routing tables</q> that are mostly empty. Participants proposed resolver sitemaps, a feed attribute for Digital Link, and agreements between GS1 and platforms, and saw EU Digital Product Passport requirements as a lever for publishing structured, identity-linked data at persistent URLs.</p>
+    </section>
+
+    <section id="theme-agent-identity" aria-labelledby="theme-agent-identity-heading">
+      <h3 id="theme-agent-identity-heading">4.4 Agent identity, delegation and authority</h3>
+      <p>Day 2 opened with the chairs' framing: <q>today we're going to talk about how we can trust them a little bit more and really know who they are.</q></p>
+      <p><strong>Know Your Agent.</strong> Several presentations converged on agent identity bound to a responsible human or organisation. Ankit Agarwal and Mike Jones (Skyfire) <span class="talk-links">(<a href="https://www.w3.org/2026/09/ecommerce-agents/slides/Ankit_Agarwal_Mike_Jones.pdf">slides</a>, <span class="video-placeholder" data-video="Ankit_Agarwal_Mike_Jones">video to be added</span>)</span> presented KYAPay, a signed JWT carrying claims about the human principal, the agent platform and the agent instance, verified at the edge by existing bot-management, CDN and fraud systems with no merchant integration. <q>Legitimate agents get blocked because nobody knows who the human behind them is</q>, and <q>I'm not going to argue with a machine.</q> Six Internet-Drafts have been submitted to the IETF OAuth Working Group; none had been adopted at the time of the workshop. Dylan Hobbs (Vouched) <span class="talk-links">(<a href="https://www.w3.org/2026/09/ecommerce-agents/slides/Dylan_Hobbs.pdf">slides</a>, <span class="video-placeholder" data-video="Dylan_Hobbs">video to be added</span>)</span> presented KYA-OS, an open specification hosted with the Decentralized Identity Foundation, in which DIDs identify, verifiable credentials delegate and signatures bind each exchange: <q>whether it has permission to spend my money shouldn't depend on its judgment.</q> His demonstration showed a passkey-approved, revocable grant enforcing spend caps and product scope, with a tamper-evident audit trail.</p>
+      <p><strong>Signed, bounded authorisation.</strong> Yukuan Jia (Huawei) <span class="talk-links">(<a href="https://www.w3.org/2026/09/ecommerce-agents/slides/Yukuan_Jia.pdf">slides</a>, <span class="video-placeholder" data-video="Yukuan_Jia">video to be added</span>)</span> proposed five levels of payment autonomy, from P0 (manual) to P4 (full autonomy), and identified the step from P1 (the user confirms each payment) to P2 (the agent pays within pre-set bounds) as the critical trust transition. Because agents can hallucinate or be attacked, <q>we should not rely on natural language instruction alone</q>: Huawei's A4P protocol uses structured, hardware-backed signed intents, runtime enforcement and verifiable evidence. He asked W3C to help with a common autonomy taxonomy, with extending commerce vocabularies to describe agents, authorisations and constraints, and with protocol-neutral interoperability.</p>
+      <p><strong>Payments credentials and mandates.</strong> Jean-Luc Di Manno <span class="talk-links">(<a href="https://www.w3.org/2026/09/ecommerce-agents/slides/Jean_Luc_Di_Manno_FIDO.pdf">slides</a>, <span class="video-placeholder" data-video="Jean_Luc_Di_Manno_FIDO">video to be added</span>)</span> described the FIDO Alliance Payments Technical Working Group's harmonisation of Google's AP2, Mastercard's Verifiable Intent and Digital Payment Credentials. Two roles are central: a credential provider, so that the agent never holds the payment instrument, and a deterministic trusted surface for consent. Mandates expressed as verifiable credentials travel across the ecosystem as evidence. The demonstration used the W3C Digital Credentials API to show a confirmation the agent cannot control. EMVCo is working in parallel on intent services and agent identity.</p>
+      <p><strong>Beyond identity: runtime trust.</strong> Speaking for Fime, Jean-Luc Di Manno <span class="talk-links">(<a href="https://www.w3.org/2026/09/ecommerce-agents/slides/Jean_Luc_Di_Manno_Fime.pdf">slides</a>, <span class="video-placeholder" data-video="Jean_Luc_Di_Manno_Fime">video to be added</span>)</span> observed that every protocol starts after the agent has interpreted the user's request: <q>the intent we are talking about is always the intent interpreted by the agent.</q> If a user mentions a friend's egg allergy and the agent keeps only <q>food for four, vegetarian, under $50</q>, a perfectly authorised purchase is still wrong. Fime's ATLAS draft proposes accredited assessor agents that check the agent's reasoning against a rule book and issue privacy-preserving evidence. Participants questioned whether accreditation models built for deterministic systems can apply to non-deterministic ones.</p>
+      <p><strong>Agents that do not use any protocol.</strong> A Day 2 breakout asked what prevents an agent from simply driving a headless browser with the user's card details. The answer was: very little. Bot detection is a <q>cat-and-mouse</q> game; fraud models were trained on yesterday's agents; and payment participants pointed out that giving card details to an agent is like giving them to a family member, leaving the user liable. Ideas included trusted-agent registries with revocation, industry norms for agents to sign their requests (for example with HTTP Message Signatures as in Web Bot Auth), regulation, and browsers acting as a point where agents identify themselves, although participants noted that W3C <q>may not want to be a body of guardianship</q>. In the closing session, a participant cautioned that there are legitimate reasons not to identify, and that easy market entry without registration <q>is what we call the open web, and we all have a responsibility to make sure that we don't break it.</q> Privacy-preserving approaches such as FedCM and the Digital Credentials API were suggested to avoid over-collection of personal data.</p>
+    </section>
+
+    <section id="theme-human" aria-labelledby="theme-human-heading">
+      <h3 id="theme-human-heading">4.5 The human in the loop: intent, confirmation and the last reversible moment</h3>
+      <p>Four presentations independently described the same failure mode, in which an agent acts within its explicit limits but commits the user to something they did not intend:</p>
+      <ul>
+        <li>a cabin suitcase bought under budget, together with a &euro;49 a year loyalty plan accepted in the merchant's terms (Claudia Caluori);</li>
+        <li>a one-time toner order that becomes a monthly subscription at the same price (Scott Lee);</li>
+        <li>a meal order that drops a guest's allergy and the user's medication constraints (Jean-Luc Di Manno);</li>
+        <li>an agent using stale instructions or exceeding its mandate (Steve Cole).</li>
+      </ul>
+      <p>Philippe Le H&eacute;garet summarised the concern for merchants: no retailer wants returns because an agent bought something the customer did not really mean to buy. <q>The credential can be genuine. The final action can still be wrong</q>, said Scott Lee (Meridian Verity Group) <span class="talk-links">(<a href="https://www.w3.org/2026/09/ecommerce-agents/slides/Scott_Lee.pdf">slides</a>, <span class="video-placeholder" data-video="Scott_Lee">video to be added</span>)</span>, who proposed <q>Action Acceptance</q> at <q>the last reversible moment</q>: before an effect becomes real, the system that would make it real asks whether this exact effect may happen now, given current authority, exact terms, fresh evidence, revocation state and replay status. Its answer can be accept, hold or refuse; <q>not yet is neither yes nor never</q>, and <q>authority and evidence may travel. Final acceptance is not inherited.</q></p>
+      <p>Participants consistently wanted a confirmation step that the agent cannot alter. FIDO's <q>trusted surface</q> rests on the observation that <q>everyone here trusts the browser when the browser says this is the basket, this is the amount; you cannot trust the agent doing that.</q> A Day 2 breakout on the trusted surface concluded that, because the merchant must legally present a summary before the user commits, an agent that re-presents that summary takes on responsibility, and must be able to prove it passed the details on verbatim, for example by hashing what the user saw. For now, <q>everybody does like the confirm button</q>; insurers are not yet ready to cover fully autonomous outcomes, and prepaid or limited cards are a stop-gap.</p>
+      <p>The remaining questions are concrete: who renders the trusted surface (the browser, the operating system, the bank, the merchant or the wallet); how deviations are handled (FIDO's answer is a new mandate; legal speakers suggested separate records for each distinct contract); and how step-up authentication works when the human is not present, <q>at 3:00 a.m.</q>. Philippe Le H&eacute;garet added a further question: what does <q>human in the loop</q> mean when the human interacts through a screen reader or other assistive technology that is itself increasingly AI-based?</p>
+      <p>Co-browsing, in which a human and an agent use the same page at the same time, was identified as a key interaction model, and as a potential area of collaboration between W3C and GS1 on serving content to humans and agents in a complementary way.</p>
+    </section>
+
+    <section id="theme-liability" aria-labelledby="theme-liability-heading">
+      <h3 id="theme-liability-heading">4.6 Merchants, payments, liability and law</h3>
+      <p><strong>The merchant view.</strong> Steve Cole (Merchant Advisory Group, representing around 200 large merchants) <span class="talk-links">(<a href="https://www.w3.org/2026/09/ecommerce-agents/slides/Steve_Cole.pdf">slides</a>, <span class="video-placeholder" data-video="Steve_Cole">video to be added</span>)</span> explained that fully autonomous transactions are <q>just not a new user interface from a payments perspective</q> but a structural change. Card-not-present rules assume a human pressed the button, and <q>there is no authorized by agent scenario.</q> Merchants will be reluctant to participate until six areas are addressed:</p>
+      <ol>
+        <li>liability that follows control of the failed function, rather than defaulting to the merchant;</li>
+        <li>routing neutrality and token portability, to avoid lock-in to one wallet or processor;</li>
+        <li>a mandatory, standard evidence package for disputes: agent identity, user verification, the consumer's mandate, and the payment credential and authorisation record;</li>
+        <li>data sovereignty, including explicit, revocable consent before merchant data is used for model training;</li>
+        <li>an open Know-Your-Agent standard with cryptographic verification, real-time revocation and no single controlling party;</li>
+        <li>transparent fees.</li>
+      </ol>
+      <p>He noted that agentic commerce could produce <em>better</em> dispute evidence than today's e-commerce, if the evidence is standardised: <q>everybody has a plan until you get punched in the face. And we just haven't got punched in the face yet.</q></p>
+      <p><strong>The legal view.</strong> Claudia Caluori (Studio Polimeni) <span class="talk-links">(<a href="https://www.w3.org/2026/09/ecommerce-agents/slides/Claudia_Caluori.pdf">slides</a>, <span class="video-placeholder" data-video="Claudia_Caluori">video to be added</span>)</span> explained that one agent <q>purchase</q> legally contains several distinct acts, each needing its own authority: the authority to buy, the authority to accept the merchant's terms, and the payment authorisation. EU law protects the moment of commitment with pre-contractual information and explicit acknowledgement of the payment obligation; common-law systems tend to resolve disputes later, through scope of authority, causation and damages. Both need reliable evidence of identity, authorisation and provenance. Current case law tends to place responsibility on whoever deploys an automated system. <q>These standards do not decide liability</q>, but they preserve the facts the law needs and shape where consumers place their legitimate expectations. She called for a gap analysis of where law assumes a human intermediary, for early liaison between the technical and legal communities, and for <q>legal legibility</q> of agent transactions. In the closing session she noted that most judges and lawyers do not yet understand what is happening. She also raised a question few others had: whether an agent that accepts terms and conditions, which humans rarely read but an agent can, binds the user.</p>
+      <p><strong>Payments infrastructure.</strong> Card networks are issuing transaction-scoped agentic tokens, and Skyfire's demonstration showed agents paying with single-use credentials. Open issues included recurring payments, which short-lived credentials do not support; strong customer authentication without a present human; and standardised dispute claims, which merchants and networks are discussing with EMVCo. Philippe Le H&eacute;garet suggested that the W3C Web Payments Working Group may need to consider whether Web applications need support for the agent identity and payment protocols being developed at the IETF and elsewhere, as W3C has done with WebRTC and Web Authentication.</p>
+    </section>
+
+    <section id="theme-inclusion" aria-labelledby="theme-inclusion-heading">
+      <h3 id="theme-inclusion-heading">4.7 Beyond the screen: accessibility, the physical world and society</h3>
+      <p><strong>The physical world.</strong> Jari Arkko and Mirja K&uuml;hlewind (Ericsson) <span class="talk-links">(<a href="https://www.w3.org/2026/09/ecommerce-agents/slides/Jari_Arkko_Mirja_Kuhlewind.pdf">slides</a>, <span class="video-placeholder" data-video="Jari_Arkko_Mirja_Kuhlewind">video to be added</span>)</span> argued that agents are largely <q>blind</q> to the real world. Networks can provide real-time information such as location, crowd density and network sensing, enabling use cases from connectivity on demand to emergency response. This raises requirements for discovery of location-specific capabilities, common vocabularies for real-world information, reactive agents, auditability across multi-step workflows, and consent and human oversight. A blind participant pointed to indoor navigation, from a hotel reception to a room, as a compelling use case.</p>
+      <p><strong>Spatial commerce.</strong> Muadh Al Kalbani (Samsung) <span class="talk-links">(<a href="https://www.w3.org/2026/09/ecommerce-agents/slides/Muadh_Al_Kalbani.pdf">slides</a>, <span class="video-placeholder" data-video="Muadh_Al_Kalbani">video to be added</span>)</span> examined immersive and augmented-reality shopping on the Web. Which layers of information does an agent actually need: product semantics, 3D representation, interaction state, or sensor data? Users who consented to a camera for a virtual try-on did not consent to a general-purpose agent consuming what it sees, so agent participation may need its own permission. The proposed WebXR marker-tracking work would let pages detect QR codes without exposing camera frames, building on ISO and GS1 symbologies. Any agent-related specification, he said, must demonstrate compliance with W3C's ethical, privacy, sustainability and architecture principles.</p>
+      <p><strong>Human alignment.</strong> Bob Vuppal (GS1 Canada) <span class="talk-links">(<a href="https://www.w3.org/2026/09/ecommerce-agents/slides/Bob_Vuppal.pdf">slides</a>, <span class="video-placeholder" data-video="Bob_Vuppal">video to be added</span>)</span> reminded participants that people shop to save time and solve problems, but also to be noticed, to connect and to feel well. Current protocols serve the first two. He called for alignment layers grounded in authoritative product data, such as age-appropriateness ratings for products, and noted the large and underserved B2B opportunity.</p>
+      <p><strong>Inclusion and choice.</strong> Several speakers stressed that not everyone can afford, or wants to use, an AI agent. L&eacute;onie Watson does not expect accessibility lawsuits to decline because access to generative AI is unequal. Participants at TPAC added that websites will not go away: some people will choose not to use an agent, and the Web must continue to serve them for shopping, banking and everyday tasks. Philippe Le H&eacute;garet noted that privacy and sustainability are raised in every AI discussion, and that W3C should also consider AI and society from the user's perspective.</p>
+    </section>
+  </section>
+
+  <section id="breakouts" aria-labelledby="breakouts-heading">
+    <h2 id="breakouts-heading">5. Breakout sessions</h2>
+    <p>Participants pitched topics after lunch on each day and voted with a show of hands. Four sessions ran each day. Summaries are based on the session report-outs and the notes taken in each room.</p>
+    <div class="report-table-wrapper" role="region" aria-labelledby="breakouts-caption" tabindex="0">
+      <table class="report-table">
+        <caption id="breakouts-caption">Breakout sessions and their main outcomes</caption>
+        <thead>
+          <tr>
+            <th scope="col">Session</th>
+            <th scope="col">Main points</th>
+            <th scope="col">Suggested follow-up</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th scope="row">Day 1: What should GS1 do now?<br><span class="report-meta">Led by Arnaud Bonnefoy, GS1</span></th>
+            <td>GS1's main contribution is neutral, protocol-agnostic trust in product identity: recognising the brand owner as the authoritative source. Much of the needed infrastructure already exists (GTIN, GS1 Digital Link, GDSN, Web Vocabulary, Verified by GS1) but is not discoverable or integrated into agent protocols. Locations (GLN) were also missing from the protocols presented.</td>
+            <td>Explore an index of authorised Digital Links and open access to registry data; engage with protocol owners; model agent actions in shared vocabularies; onboard small businesses.</td>
+          </tr>
+          <tr>
+            <th scope="row">Day 1: How do we get AI agents to consume Digital Links?<br><span class="report-meta">Led by Michel Palmen, GS1 Netherlands</span></th>
+            <td>A proof of concept works for configured agents, but public LLMs do not find the data. The model is technically sound; the missing piece is agreements between GS1 and platforms. Data that is authoritative (from the brand) was distinguished from sentiment and reviews.</td>
+            <td>Consider a Digital Link attribute in shopping feeds; pursue platform agreements; start with a pilot of a few hundred products; connect AI value to the 2D barcode migration.</td>
+          </tr>
+          <tr>
+            <th scope="row">Day 1: Product layer for AI agents<br><span class="report-meta">Led by Paula Rivero, Digital Link</span></th>
+            <td>Product data is locked in closed networks. Brand domains publishing structured, persistent, identified data should be a foundation of trust. EU Digital Product Passport requirements could standardise data, but do not prescribe vocabularies. Agent protocols should reference the full Digital Link URI.</td>
+            <td>Map retailer and platform feed attributes to schema.org and the GS1 Web Vocabulary; propose Digital Product Passport link types; run a brand-led A/B experiment; reconvene.</td>
+          </tr>
+          <tr>
+            <th scope="row">Day 1: AI-agent-friendly web pages<br><span class="report-meta">Led by Cathy Li, Meta</span></th>
+            <td>No consensus on whether merchants should change their sites. The accessibility tree is already a cheap interface for agents. Merchants lack incentives and cannot measure agent traffic; the long tail will not adopt new protocols unless platforms do it for them. Agreement on one open Web rather than two.</td>
+            <td>Consider agent-readiness tooling and guidance (for example in browser developer tools); continue WebMCP user-in-the-loop work; find ways to identify agent traffic.</td>
+          </tr>
+          <tr>
+            <th scope="row">Day 2: Trusted surface, boundaries and more<br><span class="report-meta">Led by Alistair Garrison</span></th>
+            <td>The point of acceptance decides liability. Merchants must legally present a summary before commitment; an agent that interposes takes on responsibility and must prove it relayed details verbatim. Insurers cannot yet cover autonomous outcomes, so the confirm button remains essential.</td>
+            <td>Candidate work on a deterministic, hashable merchant-to-user summary and a verifiable record of what the user confirmed.</td>
+          </tr>
+          <tr>
+            <th scope="row">Day 2: What's to stop an agent not using any of the protocols?<br><span class="report-meta">Led by Cathy Li, Meta</span></th>
+            <td>Very little. If an agent impersonates the user with the user's credentials, the user is liable. Bot detection and fraud models are not tuned for agents. There is no consensus among major agent providers on identifying themselves.</td>
+            <td>Industry norms for agent identification, trusted-agent registries with revocation, possibly regulation; a possible role for browsers, with caveats.</td>
+          </tr>
+          <tr>
+            <th scope="row">Day 2: Collaborate on KYA, and demo<br><span class="report-meta">Led by Ankit Agarwal and Mike Jones, Skyfire</span></th>
+            <td>Merchants want a ladder of signals, up to <q>agent X speaking for user Y</q>. Identity and authorisation are separate but bound layers. <q>One side wants to know who the agent is, the other side wants to know what the product is.</q> Success depends on adoption by agent platforms; privacy must be designed in.</td>
+            <td>Continue KYA drafts at the IETF; explore FedCM, Digital Credentials and WebAuthn for privacy-preserving verification; share bot-traffic measurement data with IETF research.</td>
+          </tr>
+          <tr>
+            <th scope="row">Day 2: Trusted ID: how does an agent know what a product is?<br><span class="report-meta">Led by Robert Beideman, GS1</span></th>
+            <td>No agent protocol defines the object of the action. Proposed building blocks: structured data on brand domains, brand-attested portable credentials, resolver linksets with authority metadata and sitemaps, and passing the full Digital Link URI in transactions. Frame this as trust in self-published authoritative data, not as search optimisation.</td>
+            <td>A joint, measured experiment by brands, solution providers and technology companies, with GS1 offering test datasets; strong appetite in the room to continue.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section id="next-steps" aria-labelledby="next-steps-heading">
+    <h2 id="next-steps-heading">6. Outcomes and next steps</h2>
+    <p>The workshop did not take formal decisions. In the closing session the chairs set out how each organisation intends to follow up, and participants added suggestions. In Philippe Le H&eacute;garet's words: <q>we need to talk about use cases before we can talk about technical solutions</q>, and <q>I really hope that this is a starting point for additional conversations, and some of those will lead to standards, because we need open standards and we need to keep the open web.</q></p>
+
+    <h3 id="next-gs1">Product identity and data: GS1 and the product data community</h3>
+    <p>Philippe Le H&eacute;garet welcomed GS1's intention to continue work on how products are identified and on the vocabularies and data models needed for products. Suggested directions were:</p>
+    <ul>
+      <li>convene brands, retailers, solution providers and technology companies to agree a practical, common way to publish brand-authorised product data, starting with a <strong>joint, measured experiment</strong>; GS1 offered test datasets and follow-up invitations;</li>
+      <li>promote the <strong>full GS1 Digital Link URI as the product identity</strong> carried by agent protocols, so that protocols need not change as granularity grows (batch, serial, consumer pack variant);</li>
+      <li>improve <strong>discovery</strong>: resolver sitemaps, linksets carrying authority metadata, a feed attribute for Digital Link, and agreements with AI platforms;</li>
+      <li>make authority checkable: <strong>licence-chain credentials and published roles</strong> stating who may speak about a product, and what they may say;</li>
+      <li><strong>map</strong> overlapping retailer and platform feed attributes to schema.org and the GS1 Web Vocabulary, extending openly where needed, and define Digital Product Passport link types;</li>
+      <li>make GS1 standards themselves more machine-readable, and support small businesses in publishing Web-ready product data.</li>
+    </ul>
+
+    <h3 id="next-w3c">The Web platform: W3C</h3>
+    <p>Participants identified the following areas where the Web platform has a role, and which W3C intends to take forward with its Members and community:</p>
+    <ul>
+      <li><strong>WebMCP and agent interaction with Web applications</strong>, including the issues raised from production experience: user-in-the-loop (elicitation), tools that persist across navigation, keeping the interface in sync, observability, and declaring that a tool follows a known shape;</li>
+      <li><strong>Co-browsing</strong>: what it means for a human and an agent to use the same page at the same time, and how to tell who made a decision and who pressed the button;</li>
+      <li>a <strong>trusted confirmation surface</strong> that the agent cannot alter, building on existing work such as Web Authentication, Secure Payment Confirmation and the Digital Credentials API;</li>
+      <li>whether Web applications need support for <strong>agent identity and payment protocols</strong> developed at the IETF and elsewhere, possibly through the Web Payments Working Group;</li>
+      <li>the role of <strong>verifiable credentials</strong> for mandates, grants and product licence chains, and privacy-preserving verification that avoids over-collection;</li>
+      <li><strong>agent-ready content</strong>, building on accessibility: guidance on what makes pages usable by agents, and how to measure it;</li>
+      <li><strong>shared building blocks</strong> for vocabularies describing agents, authorisations and constraints, in cooperation with schema.org and GS1;</li>
+      <li><strong>horizontal review</strong> of these topics with the TAG and the accessibility, privacy, security and internationalisation communities, and a user-centred conversation on AI and society.</li>
+    </ul>
+
+    <h3 id="next-others">Other venues</h3>
+    <p>W3C and GS1 are not the only organisations involved. Work discussed at the workshop is taking place in:</p>
+    <ul>
+      <li><strong>IETF</strong>: KYA drafts submitted to the OAuth Working Group, Web Bot Auth and HTTP Message Signatures, workload identity, and measurement research on bot traffic;</li>
+      <li><strong>FIDO Alliance</strong>: harmonisation of AP2, Verifiable Intent and Digital Payment Credentials, and agentic authentication;</li>
+      <li><strong>EMVCo</strong> and the card networks: agentic tokens, intent services and standardised dispute data;</li>
+      <li><strong>Decentralized Identity Foundation</strong> (KYA-OS), <strong>schema.org</strong>, and protocol communities such as UCP, ACP and MCP;</li>
+      <li><strong>regulators and the legal community</strong>, notably in relation to EU consumer law and the Digital Product Passport.</li>
+    </ul>
+    <p>Several speakers offered concrete collaborations: a shared authorisation profile tested across implementations (Vouched), review of and participation in the KYA drafts (Skyfire), a licensed-product trust profile (Fabacus), a shared written example for Action Acceptance (Meridian Verity Group), a reusable evidence profile across MCP, UCP and ACP using one GS1 product and two independent agent stacks (OriginTrail), and a draft e-commerce agent ontology (Paola Di Maio).</p>
+
+    <h3 id="since">Since the workshop</h3>
+    <ul>
+      <li>The workshop outcomes were presented and discussed at a <a href="https://www.w3.org/2026/10/28-ecommerce-minutes.html">TPAC 2026 breakout session</a> on 28 October 2026. Discussion there highlighted the need for missing browser primitives when an agent operates a browser, such as knowing who accepted terms on whose behalf, and the value of user stories to surface edge cases such as product expiry and seasonal packaging variants.</li>
+      <li>A charter for a <a href="https://github.com/w3c/strategy/issues/576">proposed Agentic Web Working Group</a> is under discussion. It is intended to provide a home for WebMCP and related work on agent interaction with the Web platform.</li>
+      <li>A map of relevant standards and activities, started by a workshop participant, is being used by several groups to see where the seams between efforts lie.</li>
+    </ul>
+  </section>
+
+  <section id="outlook" aria-labelledby="outlook-heading">
+    <h2 id="outlook-heading">7. Outlook and open questions</h2>
+    <p>Projections presented at the workshop suggest that agent-mediated shopping could reach 10&ndash;25% of US e-commerce by 2030. Whatever the actual figure, much of what was demonstrated did not exist a year earlier. A year ago the discussion was about agents finding and recommending products; agents now buy on users' behalf. Participants did not try to predict a single future. As one participant put it, the answer is likely <q>all of the above</q>, varying by industry: some shoppers will delegate entirely, many will co-browse with an agent, and others will continue to shop directly. The common requirement is a level playing field in which brands and retailers stay visible and trusted, and the Web stays open.</p>
+    <p>Looking ahead, the workshop points to three horizons:</p>
+    <dl class="report-horizons">
+      <dt>Now</dt>
+      <dd>Publish what already exists. Brands can publish structured, identified product data on their own domains using schema.org and the GS1 Web Vocabulary, and through GS1 Digital Link; sites can improve accessibility and adopt lightweight agent interfaces; agents can use existing identity and payment primitives. Measured experiments should replace assumptions about what agents actually use.</dd>
+      <dt>Next</dt>
+      <dd>Agree the shared building blocks: product identity in agent protocols, discovery entry points, agent identity bound to a responsible party, structured and revocable delegation, a trusted confirmation surface, and a standard evidence package for disputes.</dd>
+      <dt>Later</dt>
+      <dd>Higher levels of autonomy, agent-to-agent negotiation between brand agents and buyer agents, agents acting in the physical world, and legal frameworks for authority and liability, all of which depend on the earlier layers being trustworthy.</dd>
+    </dl>
+    <p>The workshop left a number of open questions for the community:</p>
+    <ol>
+      <li>How should agent protocols reference product identity, and at what granularity?</li>
+      <li>How can an agent verify that a source is entitled to speak about a product, and to make a given kind of statement?</li>
+      <li>Should agent-facing product data be required to reference an open vocabulary, and who maintains the crosswalks?</li>
+      <li>How does an agent discover a merchant's or brand's canonical entry point, and how is absence declared?</li>
+      <li>Who renders the trusted confirmation surface, and what properties must it have?</li>
+      <li>Which system is accountable for final acceptance of an action, and what evidence must still be current at that moment?</li>
+      <li>How are deviations from a mandate handled: re-consent, a new mandate, or a separate record per contract?</li>
+      <li>What is the minimum evidence a protocol must preserve so that responsibility can be reconstructed?</li>
+      <li>How can well-behaved agents be recognised without breaking anonymity and easy market entry on the open Web?</li>
+      <li>What does <q>human in the loop</q> mean when the human uses assistive technology that is itself AI-based?</li>
+      <li>Should agent participation in an experience, such as a camera-based try-on, require its own user permission?</li>
+      <li>How can merchants measure agent traffic and the value of making their sites agent-ready?</li>
+    </ol>
+  </section>
+
+  <section id="thanks" aria-labelledby="thanks-heading">
+    <h2 id="thanks-heading">8. Acknowledgements</h2>
+    <p>The organisers thank <a href="https://www.google.com/">Google</a> for hosting the workshop in Zurich, and <a href="https://www.visa.com/">Visa</a> for their sponsorship. GS1 also hosted the drinks reception at the end of the first day.</p>
+    <p>We thank all speakers, breakout leaders and participants, both in the room and online, and the members of the Programme Committee: Mark van Berkel (Schema App), Trish Burgess (Airbnb), Jean-Luc Di Manno (Fime), Wei Ding (Huawei), Anssi Kostiainen (Intel), Alex Jansen (Google), Michael Linck (Google), Natalia Macia (Bosch), Gavin Shenker (Visa), Andrew Smith (OpenAI), Riley Strong (OpenAI), Vasilii Trofimchuk (Block, Inc.), Andrea Volpini (WordLift), L&eacute;onie Watson (TetraLogical), Yoav Weiss (Shopify) and Song Xu (China Mobile).</p>
+    <p>Workshop chairs: Phil Archer (GS1) and Philippe Le H&eacute;garet (W3C). W3C staff contact: Roy Ruoxi Ran.</p>
+  </section>
+
+</section>
