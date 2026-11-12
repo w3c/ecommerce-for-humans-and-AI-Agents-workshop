@@ -1680,6 +1680,7 @@ th { background-color: #005a9c; color: white;}
 
 /* Workshop report */
 .workshop-report .report-status {
+  display: flow-root;
   max-width: none;
   margin-bottom: 2rem;
 }
