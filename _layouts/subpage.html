@@ -74,11 +74,13 @@
           <a href="https://www.visa.com/"><img class="event-support-logo-visa" src="{{page.base }}visa-logo.png" alt="Visa"></a>
         </div>
       </aside>
+      {% unless page.hide_update_box %}
       <aside class="box">
         <h2>Workshop Update</h2>
         <p>Registration is now closed, and final confirmations have been sent to participants.</p>
         <p>Thank you for your interest and support. We look forward to welcoming you and to productive discussions at the workshop.</p>
       </aside>
+      {% endunless %}
       {% endunless %}
       {{ content }}
     </main>
